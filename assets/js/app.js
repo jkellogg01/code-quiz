@@ -4,10 +4,25 @@ const quizStartBtn = $("quiz-start");
 
 const quizQuestions = [
   {
-    body: "",
-    answers: ["", "", "", ""],
+    body: "What does CSS stand for?",
+    answers: [
+      "Crazy Stupid Selling",
+      "Cascading Style Sheets",
+      "Crediting Sour Suckers",
+      "Creating Strong Singers",
+    ],
+    correct: 2,
   },
-  {},
+  {
+    body: "What does CSS stand for?",
+    answers: [
+      "Crazy Stupid Selling",
+      "Cascading Style Sheets",
+      "Crediting Sour Suckers",
+      "Creating Strong Singers",
+    ],
+    correct: 2,
+  },
 ];
 
 quizStartBtn.on("click", (event) => {
@@ -32,6 +47,6 @@ function generateQuestion() {
     let answerButton = quizSpaceEl.add("<button>");
     let innerText = String(index + 1) + ". " + value;
     answerButton.text(innerText);
-    answerButton.on("click");
+    answerButton.on("click", () => {});
   });
 }
