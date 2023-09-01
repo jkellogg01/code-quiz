@@ -11,16 +11,11 @@ const quizQuestions = [
       "Crediting Sour Suckers",
       "Creating Strong Singers",
     ],
-    correct: 2,
+    correct: 1,
   },
   {
-    body: "What does CSS stand for?",
-    answers: [
-      "Crazy Stupid Selling",
-      "Cascading Style Sheets",
-      "Crediting Sour Suckers",
-      "Creating Strong Singers",
-    ],
+    body: "What does JS stand for?",
+    answers: ["Jarring Story", "Juicy Socks", "JavaScript", "JumpStart"],
     correct: 2,
   },
 ];
