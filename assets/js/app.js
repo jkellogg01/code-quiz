@@ -46,11 +46,11 @@ function handleQuiz(event) {
   score = 0;
   quizTime = 75;
   generateQuestion();
-  setInterval(function quizTimer() {
+  var quizTimer = setInterval(() => {
     if (quizTime <= 0) {
-      scorePrompt(score);
       clearInterval(quizTimer);
       quizSpaceEl.children().remove();
+      scorePrompt(score);
       return;
     }
     quizTimeEl.text("Time: " + quizTime);
