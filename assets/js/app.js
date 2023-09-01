@@ -86,6 +86,29 @@ function handleAnswer(event) {
   }
 }
 
-function scorePrompt() {
-  console.log("this doesn't do anything yet.");
+function scorePrompt(score) {
+  topLineEl.text("Game Over!");
+  let promptEntryEl = $("<form>");
+  promptEntryEl.text(
+    "You scored " + score + "! Enter your initials to save your score:"
+  );
+  let nameInputEl = $('<input type="text" />');
+  let nameSubmitEl = $("<button>Submit</button>");
+  promptEntryEl.append(nameInputEl);
+  promptEntryEl.append(nameSubmitEl);
+  promptEntryEl.on("submit", handleScoreSubmit);
+  quizSpaceEl.append(promptEntryEl);
+}
+
+function handleScoreSubmit(event) {
+  let userName = nameInputEl.val();
+  if (!userName) {
+    console.log("No initials entered, not saving score");
+    return;
+  }
+  listScores.push({
+    name: userName,
+    score: score,
+  });
+  localStorage.setItem("listScores", JSON.stringify(listScores));
 }
