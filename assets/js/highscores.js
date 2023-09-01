@@ -1,5 +1,5 @@
 const scoreListEl = $("#highscore-list");
-const clearButtonEl = $;
+const clearButtonEl = $("#clear-scores");
 
 let listScores = JSON.parse(localStorage.getItem("listScores")) || [
   {
@@ -18,14 +18,17 @@ let listScores = JSON.parse(localStorage.getItem("listScores")) || [
 // console.log(listScores);
 
 populateScoreList();
+clearButtonEl.on("click", handleClearScores);
 
 function handleClearScores(event) {
   listScores = [];
-  localStorage.setItem("listScores", JSON.stringify(listScores));
+  // scoreListEl.children().remove();
   populateScoreList();
+  localStorage.setItem("listScores", JSON.stringify(listScores));
 }
 
 function populateScoreList() {
+  scoreListEl.children().remove();
   listScores.forEach((value, index) => {
     const entryContent = `${index + 1}. ${value.name}: ${value.score}`;
     let entry = $("<li>");
