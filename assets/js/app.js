@@ -58,6 +58,7 @@ function handleQuiz(event) {
     quizTimeEl.text("Time: " + quizTime);
     quizTime--;
   }, 1000);
+  quizStartBtn.remove();
 }
 
 function generateQuestion() {
