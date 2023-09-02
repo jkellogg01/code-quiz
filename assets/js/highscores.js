@@ -1,20 +1,22 @@
 const scoreListEl = $("#highscore-list");
 const clearButtonEl = $("#clear-scores");
 
-let listScores = JSON.parse(localStorage.getItem("listScores")) || [
-  {
-    name: "JK",
-    score: 98,
-  },
-  {
-    name: "DH",
-    score: 78,
-  },
-  {
-    name: "JB",
-    score: 54,
-  },
-];
+let listScores =
+  JSON.parse(localStorage.getItem("listScores")) ||
+  [
+    // {
+    //   name: "JK",
+    //   score: 98,
+    // },
+    // {
+    //   name: "DH",
+    //   score: 78,
+    // },
+    // {
+    //   name: "JB",
+    //   score: 54,
+    // },
+  ];
 // console.log(listScores);
 
 populateScoreList();

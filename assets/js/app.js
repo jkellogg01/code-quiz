@@ -3,6 +3,8 @@ const quizSpaceEl = $("#quiz-space");
 const quizStartBtn = $("#quiz-start");
 const quizTimeEl = $("#quiz-time-display");
 
+let nameInputEl;
+
 let score;
 let quizTime = 0;
 let listScores = JSON.parse(localStorage.getItem("listScores")) || [];
@@ -92,7 +94,7 @@ function scorePrompt(score) {
   promptEntryEl.text(
     "You scored " + score + "! Enter your initials to save your score:"
   );
-  let nameInputEl = $('<input type="text" />');
+  nameInputEl = $('<input type="text" id= />');
   let nameSubmitEl = $("<button>Submit</button>");
   promptEntryEl.append(nameInputEl);
   promptEntryEl.append(nameSubmitEl);
@@ -101,7 +103,8 @@ function scorePrompt(score) {
 }
 
 function handleScoreSubmit(event) {
-  let userName = nameInputEl.val();
+  event.preventDefault();
+  let userName = nameInputEl.val().toUpperCase();
   if (!userName) {
     console.log("No initials entered, not saving score");
     return;
@@ -111,4 +114,5 @@ function handleScoreSubmit(event) {
     score: score,
   });
   localStorage.setItem("listScores", JSON.stringify(listScores));
+  location.reload();
 }
